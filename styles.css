@@ -295,7 +295,8 @@ body {
   border-radius: 30px;
   cursor: pointer;
   width: 70% !important;
-  height: auto !important;
+  height: 70vh !important;
+  object-fit: cover;
 }
 
 /* .swiper-slide-active {
