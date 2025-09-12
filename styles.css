@@ -15,7 +15,12 @@ body {
 #HeaderLaptop {
   display: flex;
 }
-
+#CShow {
+  display: flex;
+}
+#CHide {
+  display: none;
+}
 /* Top Banner */
 .top-banner {
   font-family: "Playfair Display", serif;
@@ -335,6 +340,12 @@ body {
   }
   #HeaderLaptop {
     display: none;
+  }
+  #CShow {
+    display: none;
+  }
+  #CHide {
+    display: flex;
   }
   .main-nav ul li {
     flex-direction: column;
