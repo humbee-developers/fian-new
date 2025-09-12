@@ -346,6 +346,7 @@ body {
   }
   #CHide {
     display: flex;
+    text-align: center;
   }
   .main-nav ul li {
     flex-direction: column;
