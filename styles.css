@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: "IBM Plex Sans", sans-serif;
   background: #fff;
@@ -170,7 +169,6 @@ body {
   width: 100%;
 }
 /* Line animation */
-
 .main-nav ul li img {
   width: 20px;
   height: 20px;
@@ -261,7 +259,6 @@ body {
   transform: rotate(90deg);
 }
 
-/* Overlay */
 .overlay {
   position: fixed;
   top: 0;
@@ -275,7 +272,6 @@ body {
   z-index: 999;
 }
 
-/* Active states */
 .mobile-sidebar.active {
   left: 0;
 }
@@ -327,7 +323,6 @@ body {
   }
 }
 /* First section ends */
-
 @media (max-width: 1199px) {
   .main-nav ul {
     justify-content: left;
@@ -413,9 +408,6 @@ body {
     width: 18px;
     height: 18px;
   }
-  /* .mobile-sidebar{
-    padding: 2rem 20px 5rem;
-  } */
   .Swiper_container {
     padding: 0 20px;
   }
