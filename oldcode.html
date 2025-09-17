@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FIAN</title>
+        <link rel="stylesheet" href="demo.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    </head>
+
+    <body>
+        <!-- Top Banner -->
+        <div class="top-banner">
+            <div class="banner-text" id="bannerText">Use FIANFIRST for a 10%
+                discount</div>
+        </div>
+        <!-- Header Navigation -->
+        <header class="site-header" id="HeaderLaptop">
+            <div class="logo">
+                <a href="/">
+                    <img src="assets/Logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="search-bar">
+                <img src="assets/searchIcon.svg" alt="Search Icon"
+                    class="search-icon" />
+                <input type="text"
+                    placeholder="Search for the Charm, Occasion, Collection and more">
+                <img src="assets/mic.svg" alt="Mic Icon" class="mic-icon" />
+            </div>
+            <div class="header-icons">
+                <img src="assets/heart.svg" alt="Wishlist" class="icon">
+                <img src="assets/cartIcon.svg" alt="Cart" class="icon">
+            </div>
+        </header>
+        <!-- Header Mobile View -->
+        <header class="site-header" id="HeaderMobile">
+            <div class="header-top-row">
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="logo">
+                    <a href="/">
+                        <img src="assets/Logo.png" alt="Logo">
+                    </a>
+                </div>
+                <div class="header-icons">
+                    <img src="assets/heart.svg" alt="Wishlist" class="icon">
+                    <img src="assets/cartIcon.svg" alt="Cart" class="icon">
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <img src="assets/searchIcon.svg" alt="Search Icon"
+                    class="search-icon" />
+                <input type="text"
+                    placeholder="Search for the Charm, Occasion, Collection and more">
+                <img src="assets/mic.svg" alt="Mic Icon"
+                    class="mic-icon" />
+            </div>
+        </header>
+
+        <!-- Mobile Sidebar Navigation -->
+        <aside class="mobile-sidebar" id="mobileSidebar">
+            <div class="close-btn" id="closeSidebar">&times;</div>
+            <ul>
+                <li><img src="assets/all-jewellery.svg" alt="All Jewelery">All
+                    Jewellery</li>
+                <li><img src="assets/ring.svg" alt="Rings">Rings</li>
+                <li><img src="assets/pendants.svg" alt="Pendants">Pendants</li>
+                <li><img src="assets/earrings.svg" alt="Earrings">Earrings</li>
+                <li><img src="assets/necklace.svg" alt="Necklace">Necklace</li>
+                <li><img src="assets/molecular.svg" alt="Molecular">Molecular
+                    Edit</li>
+                <li><img src="assets/build-jewellery.svg" alt="Build">Build Your
+                    Own Charm
+                    Jewellery</li>
+                <li><img src="assets/collections.svg"
+                        alt="Collection">Collection</li>
+                <li><img src="assets/more.svg" alt="More">More</li>
+            </ul>
+        </aside>
+        <div class="overlay" id="overlay"></div>
+
+        <!-- Navigation Menu -->
+        <nav class="main-nav">
+            <ul>
+                <li><img src="assets/all-jewellery.svg" alt="All Jewelery">All
+                    Jewellery</li>
+                <li><img src="assets/ring.svg" alt="Rings">Rings</li>
+                <li><img src="assets/pendants.svg" alt="Pendants">Pendants</li>
+                <li><img src="assets/earrings.svg" alt="Earrings">Earrings</li>
+                <li><img src="assets/necklace.svg" alt="Necklace">Necklace</li>
+                <li><img src="assets/molecular.svg" alt="Molecular">Molecular
+                    Edit</li>
+                <li id="CShow"><img src="assets/build-jewellery.svg" alt="Build">Build Your
+                    Own Charm
+                    Jewellery</li>
+                     <li id="CHide"><img src="assets/build-jewellery.svg" alt="Build">Build Your
+                    Own<br /> Charm
+                    Jewellery</li>
+                <li><img src="assets/collections.svg"
+                        alt="Collection">Collection</li>
+                <li><img src="assets/more.svg" alt="More">More</li>
+            </ul>
+        </nav>
+
+        <!-- Hero Slider -->
+        <section class="HeroSectionSlider slider-section">
+            <div class="Swiper_container slider-column">
+                <div class="swiper swiper-slider">
+                    <div class="swiper-wrapper">
+                        <img class="swiper-slide" src="assets/SliderImg.png"
+                            alt="Swiper">
+                        <img class="swiper-slide" src="assets/SliderImg1.png"
+                            alt="Swiper">
+                        <img class="swiper-slide" src="assets/SliderImg.png"
+                            alt="Swiper">
+                        <img class="swiper-slide" src="assets/SliderImg1.png"
+                            alt="Swiper">
+                        <img class="swiper-slide" src="assets/SliderImg.png"
+                            alt="Swiper">
+                        <img class="swiper-slide" src="assets/SliderImg1.png"
+                            alt="Swiper">
+                    </div>
+                    <!-- <span class="swiper-pagination"></span>
+      <span class="swiper-button-prev"></span>
+      <span class="swiper-button-next"></span> -->
+                </div>
+            </div>
+        </section>
+        <script src="script.js"></script>
+    </body>
+</html>
