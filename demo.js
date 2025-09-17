@@ -107,3 +107,35 @@ const swiper = new Swiper(".swiper-slider", {
       }
     });
   });
+
+
+   function isTablet() {
+    return window.innerWidth <= 991;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuItems = document.querySelectorAll(".mega-menu > ul > li");
+
+    menuItems.forEach(item => {
+      item.addEventListener("click", (e) => {
+        if (!isTablet()) return; // Skip for desktop
+
+        e.preventDefault();
+
+        // Close other open items
+        menuItems.forEach(i => {
+          if (i !== item) i.classList.remove("active");
+        });
+
+        // Toggle active class
+        item.classList.toggle("active");
+      });
+    });
+
+    // Optional: close on outside click
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".mega-menu")) {
+        menuItems.forEach(i => i.classList.remove("active"));
+      }
+    });
+  });

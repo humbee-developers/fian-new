@@ -46,11 +46,11 @@
         <!-- Header Mobile View -->
         <header class="site-header" id="HeaderMobile">
             <div class="header-top-row">
-                <!-- <div class="hamburger" id="hamburger">
+                <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div> -->
+                </div>
                 <div class="logo">
                     <a href="/">
                         <img src="assets/Logo.png" alt="Logo">
@@ -62,7 +62,8 @@
                 </div>
             </div>
 
-            <div class="search-bar">
+           <div class="search-container">
+             <div class="search-bar">
                 <img src="assets/searchIcon.svg" alt="Search Icon"
                     class="search-icon" />
                 <input type="text"
@@ -70,22 +71,14 @@
                 <img src="assets/mic.svg" alt="Mic Icon"
                     class="mic-icon" />
             </div>
+           </div>
         </header>
 
         <!-- Mobile Sidebar Navigation -->
-        <!-- <aside class="mobile-sidebar" id="mobileSidebar">
+        <aside class="mobile-sidebar" id="mobileSidebar">
             <div class="close-btn" id="closeSidebar">&times;</div>
             <ul>
-                <li class="has-dropdown" id="allJewelleryItem">
-                    <img src="assets/all-jewellery.svg" alt="All Jewellery">
-                    All Jewellery
-                    <div class="mega-menu" id="megaMenu">
-                        <div class="mega-column">Rings</div>
-                        <div class="mega-column">Pendants</div>
-                        <div class="mega-column">Earrings</div>
-                        <div class="mega-column">Necklaces</div>
-                    </div>
-                </li>
+               <li><img src="assets/all-jewellery.svg" alt="Rings">All Jewellery</li>
                 <li><img src="assets/ring.svg" alt="Rings">Rings</li>
                 <li><img src="assets/pendants.svg" alt="Pendants">Pendants</li>
                 <li><img src="assets/earrings.svg" alt="Earrings">Earrings</li>
@@ -100,14 +93,14 @@
                 <li><img src="assets/more.svg" alt="More">More</li>
             </ul>
         </aside>
-        <div class="overlay" id="overlay"></div> -->
+        <div class="overlay" id="overlay"></div>
 
         <!-- Navigation Menu -->
         <header>
     <!-- <a href="https://play.tailwindcss.com/ucGvMUK39f" target="_blank">
       <img src="https://static.www.fendi.com/docroot/fendi/9.23.7/images/logo-lite.png" alt="Fendi Logo" width="99" height="30" />
     </a> -->
-
+<div class="mega-menu-wrapper">
     <nav class="mega-menu" aria-label="Primary navigation">
       <ul>
         <li>
@@ -116,7 +109,7 @@
             <li>
               <a href="#" tabindex="-1">WOMAN</a>
               <div class="cover">
-                <img src="https://static.www.fendi.com/mediaObject/fendi/homepage/gift-menu/_woman-bags/original/_woman-bags.jpg" alt="Woman Bags" />
+                <img src="assets/all-jewellery.svg" alt="Woman Bags" />
               </div>
               <ul>
                 <li><a href="#">Peekaboo</a></li>
@@ -136,7 +129,7 @@
             <li>
               <a href="#" tabindex="-1">MAN</a>
               <div class="cover">
-                <img src="https://static.www.fendi.com/mediaObject/fendi/homepage/gift-menu/_man-bags/original/_man-bags.jpg" alt="Man Bags" />
+                <img src="assets/all-jewellery.svg" alt="Man Bags" />
               </div>
               <ul>
                 <li><a href="#">Peekaboo</a></li>
@@ -404,8 +397,30 @@
             </li>
           </ul>
         </li>
+         <li>
+          <a href="#" tabindex="-1"><img src="assets/more.svg" class="LogoImage"><p>More</p></a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#">Charm Jewellery</a></li>
+                <li><a href="#">Ready to wear</a></li>
+                <li><a href="#">Shoes</a></li>
+                <li><a href="#">Accessories</a></li>
+              </ul>
+            </li>
+            <li>
+               <ul>
+                <li><a href="#">Bags</a></li>
+                <li><a href="#">Ready to wear</a></li>
+                <li><a href="#">Shoes</a></li>
+                <li><a href="#">Accessories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
+  </div>
   </header>
 
         <!-- Hero Slider -->
@@ -426,9 +441,6 @@
                         <img class="swiper-slide" src="assets/SliderImg1.png"
                             alt="Swiper">
                     </div>
-                    <!-- <span class="swiper-pagination"></span>
-      <span class="swiper-button-prev"></span>
-      <span class="swiper-button-next"></span> -->
                 </div>
             </div>
         </section>

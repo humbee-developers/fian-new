@@ -122,9 +122,9 @@ a {
   text-decoration: inherit;
   display: block;
 }
-a:hover {
+/* a:hover {
   text-decoration: underline;
-}
+} */
 ul {
   list-style: none;
   margin: 0;
@@ -136,7 +136,114 @@ ul {
     height: auto;
     border-style: none;
   } */
+   
+/* mobile-sidebar */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 14px;
+  cursor: pointer;
+}
 
+.hamburger span {
+  height: 2px;
+  background: #c37000;
+  border-radius: 2px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+/* Sidebar */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding-top: 60px;
+  padding-left: 20px;
+  transition: left 0.4s ease;
+  z-index: 1001;
+}
+
+.mobile-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-sidebar ul li {
+  margin-bottom: 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* .mobile-sidebar ul li {
+  position: relative;
+  margin-bottom: 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mobile-sidebar ul li::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffc107;
+  transition: width 0.3s ease;
+}
+
+.mobile-sidebar ul li:hover::after {
+  width: 100%;
+} */
+
+/* Close Button inside Sidebar */
+.mobile-sidebar .close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 30px;
+  color: #c37000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.mobile-sidebar .close-btn:hover {
+  transform: rotate(90deg);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+
+.mobile-sidebar.active {
+  left: 0;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 /* Container for max widths */
 .container {
   width: 100%;
@@ -171,7 +278,7 @@ ul {
 
 /* Sticky header */
 header {
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 10;
   display: flex;
@@ -271,7 +378,7 @@ header {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-weight: 700;
-  color: rgba(156, 163, 175, 1); /* text-gray-400 */
+  color: #000;
   transform: translate(0, 0);
   transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
@@ -396,22 +503,81 @@ header {
     background: var(--black-300);
   }
 }
+
+
 /* First section ends */
 @media (max-width: 1199px) {
   .main-nav ul {
     justify-content: left;
   }
 }
+@media (max-width: 991px) {
+  .mega-menu > ul {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 2%;
+    justify-content: start;
+  }
+
+  .mega-menu > ul > li {
+    flex: 0 0 auto;
+  }
+
+  @media (max-width: 991px) {
+  .mega-menu > ul > li > ul {
+    position: fixed;
+    top: 170px; /* Adjust according to your header height */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
+    max-height: calc(100vh - 100px); /* Ensure it doesn't overflow */
+    overflow-y: auto;
+    background: #fff;
+    justify-content: start;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+}
+
+}
 
 @media (max-width: 575px) {
   #HeaderMobile {
-    display: block;
+    display: contents;
   }
+  .search-container{
+    padding: 0 20px;
+  }
+  .HeroSectionSlider {
+  padding: 8rem 0 5rem;
+  }
+  /* .mega-menu{
+    top: -90px;
+  }
+  header{
+    position: static;
+  } */
   .mega-menu > ul > li:hover > ul {
     flex-direction: column;
   }
   .mega-menu > ul{
     justify-content: flex-start;
+    margin: auto;
+  }
+  .mega-menu > ul > li > a{
+    flex-direction: column;
+  }
+  .mega-menu > ul > li > ul{
+    top: 275px;
+  }
+  .LogoImage{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #c67d1b;
+    border-radius: 50px;
+    padding: 10px;
   }
   #HeaderLaptop {
     display: none;
@@ -444,8 +610,9 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     margin-top: 5px;
+    padding: 10px 20px;
   }
 
   .logo img {
