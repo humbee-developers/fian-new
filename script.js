@@ -5,6 +5,9 @@ const texts = [
     "New Arrivals Just Landed"
 ];
 
+
+
+
 let index = 0;
 const bannerText = document.getElementById("bannerText");
 
