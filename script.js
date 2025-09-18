@@ -152,85 +152,12 @@ const swiper = new Swiper(".swiper-slider", {
 // });
 
 
-// function isMobileView() {
-//   return window.innerWidth <= 991;
-// }
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const menuItems = document.querySelectorAll(".mega-menu > ul > li");
-//   let scrollY = 0;
-
-//   menuItems.forEach(item => {
-//     item.addEventListener("click", (e) => {
-//       if (!isMobileView()) return;
-
-//       e.preventDefault();
-
-//       const isActive = item.classList.contains("active");
-
-//       // Close all other items
-//       menuItems.forEach(i => i.classList.remove("active"));
-
-//       if (!isActive) {
-//         // Activate current
-//         item.classList.add("active");
-
-//         // Lock scroll
-//         scrollY = window.scrollY;
-//         document.body.style.position = 'fixed';
-//         document.body.style.top = '0px';
-//         document.body.style.left = '0';
-//         document.body.style.right = '0';
-//         document.body.classList.add("no-scroll");
-
-//         // Shift content wrapper to mimic scroll position (optional)
-//         document.body.setAttribute('data-scroll-y', scrollY);
-//         document.documentElement.scrollTop = 0;
-//       } else {
-//         // Unlock scroll
-//         item.classList.remove("active");
-//         document.body.classList.remove("no-scroll");
-
-//         document.body.style.position = '';
-//         document.body.style.top = '';
-//         document.body.style.left = '';
-//         document.body.style.right = '';
-
-//         // Restore scroll
-//         const y = document.body.getAttribute('data-scroll-y') || 0;
-//         window.scrollTo(0, parseInt(y));
-//         document.body.removeAttribute('data-scroll-y');
-//       }
-//     });
-//   });
-
-//   // Optional: close if user taps outside
-//   document.addEventListener("click", (e) => {
-//     if (
-//       isMobileView() &&
-//       !e.target.closest(".mega-menu > ul > li") &&
-//       !e.target.closest(".mega-menu > ul > li > ul")
-//     ) {
-//       menuItems.forEach(i => i.classList.remove("active"));
-//       document.body.classList.remove("no-scroll");
-//       document.body.style.position = '';
-//       document.body.style.top = '';
-//       document.body.style.left = '';
-//       document.body.style.right = '';
-
-//       const y = document.body.getAttribute('data-scroll-y') || 0;
-//       window.scrollTo(0, parseInt(y));
-//       document.body.removeAttribute('data-scroll-y');
-//     }
-//   });
-// });
 function isMobileView() {
   return window.innerWidth <= 991;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const menuItems = document.querySelectorAll(".mega-menu > ul > li");
-  const wrapper = document.getElementById("mainContentWrapper");
   let scrollY = 0;
 
   menuItems.forEach(item => {
@@ -241,30 +168,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const isActive = item.classList.contains("active");
 
-      // Close all others
+      // Close all other items
       menuItems.forEach(i => i.classList.remove("active"));
 
       if (!isActive) {
+        // Activate current
         item.classList.add("active");
 
-        // Save scroll position
+        // Lock scroll
         scrollY = window.scrollY;
-        document.body.style.top = `-${scrollY}px`;
+        document.body.style.position = 'fixed';
+        document.body.style.top = '0px';
+        document.body.style.left = '0';
+        document.body.style.right = '0';
         document.body.classList.add("no-scroll");
 
+        // Shift content wrapper to mimic scroll position (optional)
+        document.body.setAttribute('data-scroll-y', scrollY);
+        document.documentElement.scrollTop = 0;
       } else {
+        // Unlock scroll
         item.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
 
         // Restore scroll
-        document.body.classList.remove("no-scroll");
-        const y = parseInt(document.body.style.top || '0') * -1;
-        document.body.style.top = '';
-        window.scrollTo(0, y);
+        const y = document.body.getAttribute('data-scroll-y') || 0;
+        window.scrollTo(0, parseInt(y));
+        document.body.removeAttribute('data-scroll-y');
       }
     });
   });
 
-  // Optional: close on outside tap
+  // Optional: close if user taps outside
   document.addEventListener("click", (e) => {
     if (
       isMobileView() &&
@@ -272,11 +212,71 @@ document.addEventListener("DOMContentLoaded", () => {
       !e.target.closest(".mega-menu > ul > li > ul")
     ) {
       menuItems.forEach(i => i.classList.remove("active"));
-      const y = parseInt(document.body.style.top || '0') * -1;
       document.body.classList.remove("no-scroll");
+      document.body.style.position = '';
       document.body.style.top = '';
-      window.scrollTo(0, y);
+      document.body.style.left = '';
+      document.body.style.right = '';
+
+      const y = document.body.getAttribute('data-scroll-y') || 0;
+      window.scrollTo(0, parseInt(y));
+      document.body.removeAttribute('data-scroll-y');
     }
   });
 });
+// function isMobileView() {
+//   return window.innerWidth <= 991;
+// }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const menuItems = document.querySelectorAll(".mega-menu > ul > li");
+//   const wrapper = document.getElementById("mainContentWrapper");
+//   let scrollY = 0;
+
+//   menuItems.forEach(item => {
+//     item.addEventListener("click", (e) => {
+//       if (!isMobileView()) return;
+
+//       e.preventDefault();
+
+//       const isActive = item.classList.contains("active");
+
+//       // Close all others
+//       menuItems.forEach(i => i.classList.remove("active"));
+
+//       if (!isActive) {
+//         item.classList.add("active");
+
+//         // Save scroll position
+//         scrollY = window.scrollY;
+//         document.body.style.top = `-${scrollY}px`;
+//         document.body.classList.add("no-scroll");
+
+//       } else {
+//         item.classList.remove("active");
+
+//         // Restore scroll
+//         document.body.classList.remove("no-scroll");
+//         const y = parseInt(document.body.style.top || '0') * -1;
+//         document.body.style.top = '';
+//         window.scrollTo(0, y);
+//       }
+//     });
+//   });
+
+//   // Optional: close on outside tap
+//   document.addEventListener("click", (e) => {
+//     if (
+//       isMobileView() &&
+//       !e.target.closest(".mega-menu > ul > li") &&
+//       !e.target.closest(".mega-menu > ul > li > ul")
+//     ) {
+//       menuItems.forEach(i => i.classList.remove("active"));
+//       const y = parseInt(document.body.style.top || '0') * -1;
+//       document.body.classList.remove("no-scroll");
+//       document.body.style.top = '';
+//       window.scrollTo(0, y);
+//     }
+//   });
+// });
 
