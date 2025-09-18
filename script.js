@@ -113,40 +113,114 @@ const swiper = new Swiper(".swiper-slider", {
 
 
   //  / Mega Menu Click for Mobile
-function isTablet() {
+// function isTablet() {
+//   return window.innerWidth <= 991;
+// }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const menuItems = document.querySelectorAll(".mega-menu > ul > li");
+
+//   menuItems.forEach(item => {
+//     item.addEventListener("click", (e) => {
+//       if (!isTablet()) return;
+
+//       e.preventDefault();
+
+//       // Close other items
+//       menuItems.forEach(i => {
+//         if (i !== item) i.classList.remove("active");
+//       });
+
+//       item.classList.toggle("active");
+
+//       const isActive = item.classList.contains("active");
+//       if (isActive) {
+//         document.body.classList.add("no-scroll");
+//       } else {
+//         document.body.classList.remove("no-scroll");
+//       }
+//     });
+//   });
+
+//   // Click outside to close mega menu
+//   document.addEventListener("click", (e) => {
+//     if (!e.target.closest(".mega-menu")) {
+//       menuItems.forEach(i => i.classList.remove("active"));
+//       document.body.classList.remove("no-scroll");
+//     }
+//   });
+// });
+
+
+function isMobileView() {
   return window.innerWidth <= 991;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const menuItems = document.querySelectorAll(".mega-menu > ul > li");
+  let scrollY = 0;
 
   menuItems.forEach(item => {
     item.addEventListener("click", (e) => {
-      if (!isTablet()) return;
+      if (!isMobileView()) return;
 
       e.preventDefault();
 
-      // Close other items
-      menuItems.forEach(i => {
-        if (i !== item) i.classList.remove("active");
-      });
-
-      item.classList.toggle("active");
-
       const isActive = item.classList.contains("active");
-      if (isActive) {
+
+      // Close all other items
+      menuItems.forEach(i => i.classList.remove("active"));
+
+      if (!isActive) {
+        // Activate current
+        item.classList.add("active");
+
+        // Lock scroll
+        scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = '0px';
+        document.body.style.left = '0';
+        document.body.style.right = '0';
         document.body.classList.add("no-scroll");
+
+        // Shift content wrapper to mimic scroll position (optional)
+        document.body.setAttribute('data-scroll-y', scrollY);
+        document.documentElement.scrollTop = 0;
       } else {
+        // Unlock scroll
+        item.classList.remove("active");
         document.body.classList.remove("no-scroll");
+
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+
+        // Restore scroll
+        const y = document.body.getAttribute('data-scroll-y') || 0;
+        window.scrollTo(0, parseInt(y));
+        document.body.removeAttribute('data-scroll-y');
       }
     });
   });
 
-  // Click outside to close mega menu
+  // Optional: close if user taps outside
   document.addEventListener("click", (e) => {
-    if (!e.target.closest(".mega-menu")) {
+    if (
+      isMobileView() &&
+      !e.target.closest(".mega-menu > ul > li") &&
+      !e.target.closest(".mega-menu > ul > li > ul")
+    ) {
       menuItems.forEach(i => i.classList.remove("active"));
       document.body.classList.remove("no-scroll");
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+
+      const y = document.body.getAttribute('data-scroll-y') || 0;
+      window.scrollTo(0, parseInt(y));
+      document.body.removeAttribute('data-scroll-y');
     }
   });
 });

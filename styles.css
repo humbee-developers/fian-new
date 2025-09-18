@@ -11,12 +11,9 @@ body {
 /* Prevent body scroll on mobile */
 body.no-scroll {
   overflow: hidden !important;
-  position: fixed !important;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  touch-action: none;
 }
+
 
 /* Mega menu wrapper should be scrollable */
 /* .mega-menu-wrapper {
@@ -596,7 +593,12 @@ header {
   }
   .mega-menu > ul > li > ul{
     top: 275px;
+    /* top: auto; */
+    /* max-height: calc(100vh - 260px); */
   }
+  /* .mega-menu > ul > li.active > ul {
+    
+  } */
   .LogoImage{
     width: 50px;
     height: 50px;
