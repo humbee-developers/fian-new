@@ -24,8 +24,8 @@ body.no-scroll {
 /* Mega menu scrollable wrapper */
 .mega-menu-wrapper {
   /* max-height: 100vh; */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  /* overflow-y: auto;
+  -webkit-overflow-scrolling: touch; */
   /* iOS smooth scrolling */
   /* position: relative; */
 }
@@ -600,7 +600,7 @@ header {
       max-height: calc(100vh - 100px);
       /* Ensure it doesn't overflow */
       overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
+      /* -webkit-overflow-scrolling: touch; */
       background: #fff;
       justify-content: start;
       padding: 20px;
