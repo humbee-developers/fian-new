@@ -16,7 +16,13 @@ body.no-scroll {
   overscroll-behavior: none !important;
   width: 100%;
 }
-
+/* Mega menu scrollable wrapper */
+.mega-menu-wrapper {
+  /* max-height: 100vh; */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+  /* position: relative; */
+}
 
 /* Mega menu wrapper should be scrollable */
 /* .mega-menu-wrapper {
