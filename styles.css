@@ -8,10 +8,25 @@ body {
   background: #fff;
   color: #000;
 }
+/* Prevent body scroll on mobile */
 body.no-scroll {
-  overflow: hidden;
-  height: 100vh;
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
+
+/* Mega menu wrapper should be scrollable */
+/* .mega-menu-wrapper {
+  max-height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 9999;
+  background-color: white;
+} */
+
 
 /* .mega-menu-wrapper {
   max-height: 100vh;
