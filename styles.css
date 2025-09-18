@@ -377,7 +377,7 @@ header {
   position: relative;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  font-weight: 700;
+  font-weight: 400;
   color: #000;
   transform: translate(0, 0);
   transition-property: background-color, border-color, color, fill, stroke;
@@ -400,7 +400,7 @@ header {
 
 /* Hover on top-level li: text color and underline expands */
 .mega-menu > ul > li:hover > a {
-  color: rgba(31, 41, 55, 1); /* text-gray-900 */
+  /* color: rgba(31, 41, 55, 1);  */
 }
 .mega-menu > ul > li:hover > a::after {
   width: 100%;
@@ -436,7 +436,7 @@ header {
 .mega-menu > ul > li > ul > li > a {
   border-left: 4px solid #c67d1b;
   padding-left: 0.5rem;
-  /* font-weight: 700; */
+  font-weight: 700;
   /* letter-spacing: 0.1em; */
 }
 
