@@ -558,6 +558,7 @@ header {
     height: auto;
     max-height: calc(100vh - 100px); /* Ensure it doesn't overflow */
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     background: #fff;
     justify-content: start;
     padding: 20px;
