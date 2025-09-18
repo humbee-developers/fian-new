@@ -12,6 +12,7 @@ body {
 body.no-scroll {
   overflow: hidden !important;
   touch-action: none;
+  position: fixed !important;
 }
 
 
