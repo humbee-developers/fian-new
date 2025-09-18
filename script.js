@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+
 const swiper = new Swiper(".swiper-slider", {
     centeredSlides: true,
     slidesPerView: 1,
@@ -109,33 +112,41 @@ const swiper = new Swiper(".swiper-slider", {
   });
 
 
-   function isTablet() {
-    return window.innerWidth <= 991;
-  }
+  //  / Mega Menu Click for Mobile
+function isTablet() {
+  return window.innerWidth <= 991;
+}
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuItems = document.querySelectorAll(".mega-menu > ul > li");
+document.addEventListener("DOMContentLoaded", () => {
+  const menuItems = document.querySelectorAll(".mega-menu > ul > li");
 
-    menuItems.forEach(item => {
-      item.addEventListener("click", (e) => {
-        if (!isTablet()) return; // Skip for desktop
+  menuItems.forEach(item => {
+    item.addEventListener("click", (e) => {
+      if (!isTablet()) return;
 
-        e.preventDefault();
+      e.preventDefault();
 
-        // Close other open items
-        menuItems.forEach(i => {
-          if (i !== item) i.classList.remove("active");
-        });
-
-        // Toggle active class
-        item.classList.toggle("active");
+      // Close other items
+      menuItems.forEach(i => {
+        if (i !== item) i.classList.remove("active");
       });
-    });
 
-    // Optional: close on outside click
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".mega-menu")) {
-        menuItems.forEach(i => i.classList.remove("active"));
+      item.classList.toggle("active");
+
+      const isActive = item.classList.contains("active");
+      if (isActive) {
+        document.body.classList.add("no-scroll");
+      } else {
+        document.body.classList.remove("no-scroll");
       }
     });
   });
+
+  // Click outside to close mega menu
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".mega-menu")) {
+      menuItems.forEach(i => i.classList.remove("active"));
+      document.body.classList.remove("no-scroll");
+    }
+  });
+});

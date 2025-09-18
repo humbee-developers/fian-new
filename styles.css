@@ -8,6 +8,16 @@ body {
   background: #fff;
   color: #000;
 }
+body.no-scroll {
+  overflow: hidden;
+  /* height: 100vh; */
+}
+
+/* .mega-menu-wrapper {
+  max-height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+} */
 #HeaderMobile {
   display: none;
 }
