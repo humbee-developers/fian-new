@@ -11,8 +11,10 @@ body {
 /* Prevent body scroll on mobile */
 body.no-scroll {
   overflow: hidden !important;
-  touch-action: none;
+  touch-action: none !important;
   position: fixed !important;
+  overscroll-behavior: none !important;
+  width: 100%;
 }
 
 
