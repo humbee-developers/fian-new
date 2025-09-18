@@ -311,3 +311,44 @@ document.addEventListener("DOMContentLoaded", () => {
 //   window.scrollTo(0, parseInt(scrollY));
 //   document.body.removeAttribute('data-scroll-y');
 // };
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuItems = document.querySelectorAll(".mega-menu > ul > li");
+
+  menuItems.forEach(item => {
+    item.addEventListener("click", (e) => {
+      if (!isMobileView()) return;
+      e.preventDefault();
+
+      const isActive = item.classList.contains("active");
+
+      // Close all other items first
+      menuItems.forEach(i => {
+        if (i !== item) i.classList.remove("active");
+      });
+
+      if (!isActive) {
+        // Open clicked item
+        item.classList.add("active");
+        disableBodyScroll(); // lock body scroll
+      } else {
+        // Close clicked item
+        item.classList.remove("active");
+        enableBodyScroll(); // unlock body scroll
+      }
+    });
+  });
+
+  // Click outside to close all
+  document.addEventListener("click", (e) => {
+    if (
+      isMobileView() &&
+      !e.target.closest(".mega-menu > ul > li") &&
+      !e.target.closest(".mega-menu-wrapper")
+    ) {
+      menuItems.forEach(i => i.classList.remove("active"));
+      enableBodyScroll();
+    }
+  });
+});
