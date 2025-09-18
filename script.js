@@ -280,3 +280,34 @@ document.addEventListener("DOMContentLoaded", () => {
 //   });
 // });
 
+const disableBodyScroll = () => {
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  
+  // Save scroll position
+  document.body.setAttribute('data-scroll-y', scrollY);
+
+  // Lock body
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
+  document.body.classList.add('no-scroll');
+
+  // Force scrollTop 0 for iOS
+  window.scrollTo(0, 0);
+};
+
+const enableBodyScroll = () => {
+  const scrollY = document.body.getAttribute('data-scroll-y') || '0';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+  document.body.classList.remove('no-scroll');
+
+  // Restore scroll position
+  window.scrollTo(0, parseInt(scrollY));
+  document.body.removeAttribute('data-scroll-y');
+};

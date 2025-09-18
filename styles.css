@@ -3,24 +3,30 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "IBM Plex Sans", sans-serif;
   background: #fff;
   color: #000;
 }
+
 /* Prevent body scroll on mobile */
 body.no-scroll {
   overflow: hidden !important;
   touch-action: none !important;
   position: fixed !important;
   overscroll-behavior: none !important;
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
 }
+
 /* Mega menu scrollable wrapper */
 .mega-menu-wrapper {
   /* max-height: 100vh; */
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* iOS smooth scrolling */
   /* position: relative; */
 }
 
@@ -42,15 +48,19 @@ body.no-scroll {
 #HeaderMobile {
   display: none;
 }
+
 #HeaderLaptop {
   display: flex;
 }
+
 #CShow {
   display: flex;
 }
+
 #CHide {
   display: none;
 }
+
 /* Top Banner */
 .top-banner {
   font-family: "Playfair Display", serif;
@@ -77,6 +87,7 @@ body.no-scroll {
     opacity: 0;
     transform: translateY(100%);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -121,9 +132,11 @@ body.no-scroll {
   outline: none;
   background: transparent;
 }
+
 .search-bar:focus-within {
   border: 1px solid #c67d1b;
 }
+
 .search-bar .search-icon {
   width: 20px;
   height: 20px;
@@ -136,12 +149,14 @@ body.no-scroll {
   margin-left: 10px;
   cursor: pointer;
 }
+
 .header-icons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
+
 .header-icons i {
   margin-left: 20px;
   font-size: 18px;
@@ -153,6 +168,7 @@ a {
   text-decoration: inherit;
   display: block;
 }
+
 /* a:hover {
   text-decoration: underline;
 } */
@@ -161,13 +177,14 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 /* img {
     display: block;
     max-width: 100%;
     height: auto;
     border-style: none;
   } */
-   
+
 /* mobile-sidebar */
 .hamburger {
   display: flex;
@@ -213,6 +230,7 @@ ul {
   align-items: center;
   gap: 10px;
 }
+
 /* .mobile-sidebar ul li {
   position: relative;
   margin-bottom: 20px;
@@ -275,32 +293,38 @@ ul {
   opacity: 1;
   visibility: visible;
 }
+
 /* Container for max widths */
 .container {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
+
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
   }
 }
+
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
   }
 }
+
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
   }
 }
+
 @media (min-width: 1280px) {
   .container {
     max-width: 1280px;
   }
 }
+
 @media (min-width: 1560px) {
   .container {
     max-width: 1560px;
@@ -349,7 +373,7 @@ header {
 }
 
 /* Limit mega-menu ul max widths at breakpoints */
-.mega-menu > ul {
+.mega-menu>ul {
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -360,45 +384,50 @@ header {
   position: relative;
   width: 100%;
 }
+
 @media (min-width: 640px) {
-  .mega-menu > ul {
+  .mega-menu>ul {
     max-width: 640px;
   }
 }
+
 @media (min-width: 768px) {
-  .mega-menu > ul {
+  .mega-menu>ul {
     max-width: 768px;
   }
 }
+
 @media (min-width: 1024px) {
-  .mega-menu > ul {
+  .mega-menu>ul {
     max-width: 1024px;
   }
 }
+
 @media (min-width: 1280px) {
-  .mega-menu > ul {
+  .mega-menu>ul {
     max-width: 1280px;
   }
 }
+
 @media (min-width: 1560px) {
-  .mega-menu > ul {
+  .mega-menu>ul {
     max-width: 1560px;
   }
 }
 
 /* Top-level li inside mega menu ul */
-.mega-menu > ul > li {
+.mega-menu>ul>li {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-left: 1rem;
   padding-right: 1rem;
-  
+
   cursor: pointer;
 }
 
 /* Top-level links - default */
-.mega-menu > ul > li > a {
+.mega-menu>ul>li>a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -417,7 +446,7 @@ header {
 }
 
 /* Underline effect after span */
-.mega-menu > ul > li > a::after {
+.mega-menu>ul>li>a::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -425,22 +454,24 @@ header {
   display: block;
   height: 0.25rem;
   width: 0;
-  background-color: #c67d1b; /* border-primary */
+  background-color: #c67d1b;
+  /* border-primary */
   transform: translateX(-50%) translateY(-50%);
 }
 
 /* Hover on top-level li: text color and underline expands */
-.mega-menu > ul > li:hover > a {
+.mega-menu>ul>li:hover>a {
   /* color: rgba(31, 41, 55, 1);  */
 }
-.mega-menu > ul > li:hover > a::after {
+
+.mega-menu>ul>li:hover>a::after {
   width: 100%;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 /* Dropdown container */
-.mega-menu > ul > li > ul {
+.mega-menu>ul>li>ul {
   position: absolute;
   left: 0;
   right: 0;
@@ -459,12 +490,12 @@ header {
 }
 
 /* Show dropdown on li hover */
-.mega-menu > ul > li:hover > ul {
+.mega-menu>ul>li:hover>ul {
   display: flex;
 }
 
 /* Second-level anchor under dropdown */
-.mega-menu > ul > li > ul > li > a {
+.mega-menu>ul>li>ul>li>a {
   border-left: 4px solid #c67d1b;
   padding-left: 0.5rem;
   font-weight: 700;
@@ -472,19 +503,20 @@ header {
 }
 
 /* Image covers in submenu */
-.mega-menu > ul > li > ul > li > .cover {
+.mega-menu>ul>li>ul>li>.cover {
   margin-top: 0.5rem;
   width: 100%;
   display: block;
 }
-.mega-menu > ul > li > ul > li > .cover img {
+
+.mega-menu>ul>li>ul>li>.cover img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
 /* Third-level submenu list */
-.mega-menu > ul > li > ul > li > ul {
+.mega-menu>ul>li>ul>li>ul {
   margin-top: 0.75rem;
   display: flex;
   flex-direction: column;
@@ -518,6 +550,7 @@ header {
 } */
 
 .swiper {
+
   &-button-next::after,
   &-button-prev::after {
     display: flex;
@@ -542,36 +575,39 @@ header {
     justify-content: left;
   }
 }
+
 @media (max-width: 991px) {
-  .mega-menu > ul {
+  .mega-menu>ul {
     overflow-x: auto;
     white-space: nowrap;
     padding: 10px 2%;
     justify-content: start;
   }
 
-  .mega-menu > ul > li {
+  .mega-menu>ul>li {
     flex: 0 0 auto;
   }
 
   @media (max-width: 991px) {
-  .mega-menu > ul > li > ul {
-    position: fixed;
-    top: 170px; /* Adjust according to your header height */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: auto;
-    max-height: calc(100vh - 100px); /* Ensure it doesn't overflow */
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    background: #fff;
-    justify-content: start;
-    padding: 20px;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    .mega-menu>ul>li>ul {
+      position: fixed;
+      top: 170px;
+      /* Adjust according to your header height */
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: auto;
+      max-height: calc(100vh - 100px);
+      /* Ensure it doesn't overflow */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      background: #fff;
+      justify-content: start;
+      padding: 20px;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
   }
-}
 
 }
 
@@ -579,56 +615,68 @@ header {
   #HeaderMobile {
     display: contents;
   }
-  .search-container{
+
+  .search-container {
     padding: 0 20px;
   }
+
   .HeroSectionSlider {
-  padding: 5rem 0 5rem;
+    padding: 5rem 0 5rem;
   }
+
   /* .mega-menu{
     top: -90px;
   }
   header{
     position: static;
   } */
-  .mega-menu > ul > li:hover > ul {
+  .mega-menu>ul>li:hover>ul {
     flex-direction: column;
   }
-  .mega-menu > ul{
+
+  .mega-menu>ul {
     justify-content: flex-start;
     margin: auto;
   }
-  .mega-menu > ul > li > a{
+
+  .mega-menu>ul>li>a {
     flex-direction: column;
   }
-  .mega-menu > ul > li > ul{
+
+  .mega-menu>ul>li>ul {
     top: 275px;
     /* top: auto; */
     /* max-height: calc(100vh - 260px); */
   }
+
   /* .mega-menu > ul > li.active > ul {
     
   } */
-  .LogoImage{
+  .LogoImage {
     width: 50px;
     height: 50px;
     border: 1px solid #c67d1b;
     border-radius: 50px;
     padding: 10px;
   }
+
   #HeaderLaptop {
     display: none;
   }
+
   #CShow {
     display: none;
   }
+
   #CHide {
     display: flex;
     text-align: center;
   }
+
   .main-nav ul li {
     flex-direction: column;
   }
+
   .main-nav ul li img {
     width: 80px;
     height: 80px;
@@ -636,6 +684,7 @@ header {
     border: 1px solid #c67d1b;
     padding: 15px;
   }
+
   .site-header {
     flex-direction: column;
     align-items: stretch;
@@ -692,9 +741,11 @@ header {
     width: 18px;
     height: 18px;
   }
+
   .Swiper_container {
     padding: 0 20px;
   }
+
   .swiper-slide {
     border-radius: 30px;
     width: 100% !important;
@@ -702,6 +753,7 @@ header {
     object-fit: cover;
   }
 }
+
 @media (max-width: 475px) {
   .swiper-slide {
     height: 45vh !important;
