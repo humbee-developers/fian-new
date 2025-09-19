@@ -19,21 +19,7 @@ setInterval(() => {
     bannerText.textContent = texts[index];
 }, 3000);
 
-document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.getElementById("hamburger");
-    const sidebar = document.getElementById("mobileSidebar");
-    const overlay = document.getElementById("overlay");
-    const closeBtn = document.getElementById("closeSidebar");
 
-    const toggleSidebar = () => {
-        sidebar.classList.toggle("active");
-        overlay.classList.toggle("active");
-    };
-
-    hamburger.addEventListener("click", toggleSidebar);
-    overlay.addEventListener("click", toggleSidebar);
-    closeBtn.addEventListener("click", toggleSidebar);
-});
 
 
 
@@ -91,261 +77,217 @@ const swiper = new Swiper(".swiper-slider", {
             spaceBetween: 30
         }
     },
-    // Coverflow effect to enlarge active slide
-    //   effect: 'coverflow',
-    //   coverflowEffect: {
-    //     rotate: 0,
-    //     stretch: 0,
-    //     depth: 100,
-    //     modifier: 1,
-    //     slideShadows: false,
-    //   },
 });
-
-
-
-  //  / Mega Menu Click for Mobile
-// function isTablet() {
-//   return window.innerWidth <= 991;
-// }
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const menuItems = document.querySelectorAll(".mega-menu > ul > li");
-
-//   menuItems.forEach(item => {
-//     item.addEventListener("click", (e) => {
-//       if (!isTablet()) return;
-
-//       e.preventDefault();
-
-//       // Close other items
-//       menuItems.forEach(i => {
-//         if (i !== item) i.classList.remove("active");
-//       });
-
-//       item.classList.toggle("active");
-
-//       const isActive = item.classList.contains("active");
-//       if (isActive) {
-//         document.body.classList.add("no-scroll");
-//       } else {
-//         document.body.classList.remove("no-scroll");
-//       }
-//     });
-//   });
-
-//   // Click outside to close mega menu
-//   document.addEventListener("click", (e) => {
-//     if (!e.target.closest(".mega-menu")) {
-//       menuItems.forEach(i => i.classList.remove("active"));
-//       document.body.classList.remove("no-scroll");
-//     }
-//   });
-// });
-
-
 function isMobileView() {
   return window.innerWidth <= 991;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger");
+  const sidebar = document.getElementById("mobileSidebar");
+  const overlay = document.getElementById("overlay");
+  const closeBtn = document.getElementById("closeSidebar");
+  const megaMenuWrapper = document.querySelector(".mega-menu-wrapper");
+  const megaMenuCloseBtn = document.getElementById("megaMenuCloseBtn");
   const menuItems = document.querySelectorAll(".mega-menu > ul > li");
-  let scrollY = 0;
 
-  menuItems.forEach(item => {
-    item.addEventListener("click", (e) => {
-      if (!isMobileView()) return;
+  const toggleSidebar = () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  };
 
-      e.preventDefault();
+  hamburger?.addEventListener("click", toggleSidebar);
+  overlay?.addEventListener("click", toggleSidebar);
+  closeBtn?.addEventListener("click", toggleSidebar);
 
-      const isActive = item.classList.contains("active");
+  // ✅ Shared function to fully close mega menu
+  function closeMegaMenu() {
+    menuItems.forEach(i => i.classList.remove("active"));
+    document.body.classList.remove("no-scroll");
+    document.body.style.position = '';
+    document.body.style.top = '';
+    const y = document.body.getAttribute('data-scroll-y') || 0;
+    window.scrollTo(0, parseInt(y));
+    document.body.removeAttribute('data-scroll-y');
+    megaMenuWrapper.classList.remove("show-close-btn");
+  }
 
-      // Close all other items
-      menuItems.forEach(i => i.classList.remove("active"));
+//  // ✅ Mega Menu Toggle (li click)
+// menuItems.forEach(item => {
+//   item.addEventListener("click", (e) => {
+//     if (!isMobileView()) return;
 
-      if (!isActive) {
-        // Activate current
-        item.classList.add("active");
+//     e.preventDefault();
 
-        // Lock scroll
-        scrollY = window.scrollY;
-        document.body.style.position = 'fixed';
-        document.body.style.top = '0px';
-        document.body.style.left = '0';
-        document.body.style.right = '0';
-        document.body.classList.add("no-scroll");
+//     const isActive = item.classList.contains("active");
 
-        // Shift content wrapper to mimic scroll position (optional)
-        document.body.setAttribute('data-scroll-y', scrollY);
-        document.documentElement.scrollTop = 0;
-      } else {
-        // Unlock scroll
-        item.classList.remove("active");
-        document.body.classList.remove("no-scroll");
+//     // Check if any item is already active
+//     const anyActive = [...menuItems].some(i => i.classList.contains("active"));
 
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
+//     // Remove active from all
+//     menuItems.forEach(i => i.classList.remove("active"));
 
-        // Restore scroll
-        const y = document.body.getAttribute('data-scroll-y') || 0;
-        window.scrollTo(0, parseInt(y));
-        document.body.removeAttribute('data-scroll-y');
-      }
-    });
-  });
+//     if (!isActive) {
+//       item.classList.add("active");
 
-  // Optional: close if user taps outside
-  document.addEventListener("click", (e) => {
-    if (
-      isMobileView() &&
-      !e.target.closest(".mega-menu > ul > li") &&
-      !e.target.closest(".mega-menu > ul > li > ul")
-    ) {
-      menuItems.forEach(i => i.classList.remove("active"));
-      document.body.classList.remove("no-scroll");
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
+//       // Lock scroll
+//       const scrollY = window.scrollY;
+//       document.body.style.position = 'fixed';
+//       document.body.style.top = '0px';
+//       document.body.classList.add("no-scroll");
+//       document.body.setAttribute('data-scroll-y', scrollY);
+//       window.scrollTo(0, 0);
 
-      const y = document.body.getAttribute('data-scroll-y') || 0;
-      window.scrollTo(0, parseInt(y));
-      document.body.removeAttribute('data-scroll-y');
+//       // ✅ Always show close button on open
+//       megaMenuWrapper.classList.add("show-close-btn");
+//     } else {
+//       // ✅ If clicking the same item → fully close mega menu
+//       closeMegaMenu();
+//     }
+
+//     // ✅ If switching between items (not closing all), keep close button visible
+//     if (!isActive && anyActive) {
+//       megaMenuWrapper.classList.add("show-close-btn");
+//     }
+//   });
+// });
+menuItems.forEach(item => {
+  item.addEventListener("click", (e) => {
+    if (!isMobileView()) return;
+
+    e.preventDefault();
+
+    const isAlreadyActive = item.classList.contains("active");
+
+    // Remove all active classes
+    menuItems.forEach(i => i.classList.remove("active"));
+
+    // Always activate the clicked item
+    item.classList.add("active");
+
+    // Show close button
+    megaMenuWrapper.classList.add("show-close-btn");
+
+    // Lock scroll only if this is the first time opening
+    if (!document.body.classList.contains("no-scroll")) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '0px';
+      document.body.classList.add("no-scroll");
+      document.body.setAttribute('data-scroll-y', scrollY);
+      window.scrollTo(0, 0);
     }
   });
 });
 
 
 
+ megaMenuCloseBtn?.addEventListener("click", () => {
+  menuItems.forEach(i => i.classList.remove("active"));
+  document.body.classList.remove("no-scroll");
+  document.body.style.position = '';
+  document.body.style.top = '';
+  const y = document.body.getAttribute('data-scroll-y') || 0;
+  window.scrollTo(0, parseInt(y));
+  document.body.removeAttribute('data-scroll-y');
+  megaMenuWrapper.classList.remove("show-close-btn");
+});
 
+});
 
 // function isMobileView() {
 //   return window.innerWidth <= 991;
 // }
 
 // document.addEventListener("DOMContentLoaded", () => {
+//   const hamburger = document.getElementById("hamburger");
+//   const sidebar = document.getElementById("mobileSidebar");
+//   const overlay = document.getElementById("overlay");
+//   const closeBtn = document.getElementById("closeSidebar");
+//   const megaMenuWrapper = document.querySelector(".mega-menu-wrapper");
+//   const megaMenuCloseBtn = document.getElementById("megaMenuCloseBtn");
 //   const menuItems = document.querySelectorAll(".mega-menu > ul > li");
-//   const wrapper = document.getElementById("mainContentWrapper");
-//   let scrollY = 0;
 
-//   menuItems.forEach(item => {
-//     item.addEventListener("click", (e) => {
-//       if (!isMobileView()) return;
+//   const toggleSidebar = () => {
+//     sidebar.classList.toggle("active");
+//     overlay.classList.toggle("active");
+//   };
 
-//       e.preventDefault();
+//   hamburger?.addEventListener("click", toggleSidebar);
+//   overlay?.addEventListener("click", toggleSidebar);
+//   closeBtn?.addEventListener("click", toggleSidebar);
 
-//       const isActive = item.classList.contains("active");
+// // Mega Menu Toggle (works for li, a, p, img)
+// menuItems.forEach(item => {
+//   item.addEventListener("click", (e) => {
+//     if (!isMobileView()) return;
 
-//       // Close all others
-//       menuItems.forEach(i => i.classList.remove("active"));
+//     e.preventDefault();
 
-//       if (!isActive) {
-//         item.classList.add("active");
+//     const isActive = item.classList.contains("active");
 
-//         // Save scroll position
-//         scrollY = window.scrollY;
-//         document.body.style.top = `-${scrollY}px`;
-//         document.body.classList.add("no-scroll");
+//     // Remove active from all
+//     menuItems.forEach(i => i.classList.remove("active"));
 
-//       } else {
-//         item.classList.remove("active");
+//     if (!isActive) {
+//       item.classList.add("active");
 
-//         // Restore scroll
-//         document.body.classList.remove("no-scroll");
-//         const y = parseInt(document.body.style.top || '0') * -1;
-//         document.body.style.top = '';
-//         window.scrollTo(0, y);
-//       }
-//     });
-//   });
+//       // Lock scroll
+//       const scrollY = window.scrollY;
+//       document.body.style.position = 'fixed';
+//       document.body.style.top = '0px';
+//       document.body.classList.add("no-scroll");
+//       document.body.setAttribute('data-scroll-y', scrollY);
+//       window.scrollTo(0, 0);
 
-//   // Optional: close on outside tap
-//   document.addEventListener("click", (e) => {
-//     if (
-//       isMobileView() &&
-//       !e.target.closest(".mega-menu > ul > li") &&
-//       !e.target.closest(".mega-menu > ul > li > ul")
-//     ) {
-//       menuItems.forEach(i => i.classList.remove("active"));
-//       const y = parseInt(document.body.style.top || '0') * -1;
+//       // Show close button
+//       megaMenuWrapper.classList.add("show-close-btn");
+//     } else {
+//       // Already active → Close
 //       document.body.classList.remove("no-scroll");
+//       document.body.style.position = '';
 //       document.body.style.top = '';
-//       window.scrollTo(0, y);
+//       const y = document.body.getAttribute('data-scroll-y') || 0;
+//       window.scrollTo(0, parseInt(y));
+//       document.body.removeAttribute('data-scroll-y');
+
+//       item.classList.remove("active");
+//       megaMenuWrapper.classList.remove("show-close-btn");
 //     }
 //   });
 // });
 
-// const disableBodyScroll = () => {
-//   const scrollY = window.scrollY || document.documentElement.scrollTop;
-  
-//   // Save scroll position
-//   document.body.setAttribute('data-scroll-y', scrollY);
-
-//   // Lock body
-//   document.body.style.position = 'fixed';
-//   document.body.style.top = `-${scrollY}px`;
-//   document.body.style.left = '0';
-//   document.body.style.right = '0';
-//   document.body.style.width = '100%';
-//   document.body.classList.add('no-scroll');
-
-//   // Force scrollTop 0 for iOS
-//   window.scrollTo(0, 0);
-// };
-
-// const enableBodyScroll = () => {
-//   const scrollY = document.body.getAttribute('data-scroll-y') || '0';
-//   document.body.style.position = '';
-//   document.body.style.top = '';
-//   document.body.style.left = '';
-//   document.body.style.right = '';
-//   document.body.style.width = '';
-//   document.body.classList.remove('no-scroll');
-
-//   // Restore scroll position
-//   window.scrollTo(0, parseInt(scrollY));
-//   document.body.removeAttribute('data-scroll-y');
-// };
 
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const menuItems = document.querySelectorAll(".mega-menu > ul > li");
-
-//   menuItems.forEach(item => {
-//     item.addEventListener("click", (e) => {
-//       if (!isMobileView()) return;
-//       e.preventDefault();
-
-//       const isActive = item.classList.contains("active");
-
-//       // Close all other items first
-//       menuItems.forEach(i => {
-//         if (i !== item) i.classList.remove("active");
-//       });
-
-//       if (!isActive) {
-//         // Open clicked item
-//         item.classList.add("active");
-//         disableBodyScroll(); // lock body scroll
-//       } else {
-//         // Close clicked item
-//         item.classList.remove("active");
-//         enableBodyScroll(); // unlock body scroll
-//       }
-//     });
+//   // Close btn inside mega menu
+//   megaMenuCloseBtn?.addEventListener("click", () => {
+//     menuItems.forEach(i => i.classList.remove("active"));
+//     document.body.classList.remove("no-scroll");
+//     document.body.style.position = '';
+//     document.body.style.top = '';
+//     const y = document.body.getAttribute('data-scroll-y') || 0;
+//     window.scrollTo(0, parseInt(y));
+//     document.body.removeAttribute('data-scroll-y');
+//     megaMenuWrapper.classList.remove("show-close-btn");
 //   });
 
-//   // Click outside to close all
+//   // Click outside to close (optional)
 //   document.addEventListener("click", (e) => {
 //     if (
 //       isMobileView() &&
 //       !e.target.closest(".mega-menu > ul > li") &&
-//       !e.target.closest(".mega-menu-wrapper")
+//       !e.target.closest(".mega-menu > ul > li > ul") &&
+//       !e.target.closest("#megaMenuCloseBtn")
 //     ) {
 //       menuItems.forEach(i => i.classList.remove("active"));
-//       enableBodyScroll();
+//       document.body.classList.remove("no-scroll");
+//       document.body.style.position = '';
+//       document.body.style.top = '';
+//       const y = document.body.getAttribute('data-scroll-y') || 0;
+//       window.scrollTo(0, parseInt(y));
+//       document.body.removeAttribute('data-scroll-y');
+//       megaMenuWrapper.classList.remove("show-close-btn");
 //     }
 //   });
 // });
+

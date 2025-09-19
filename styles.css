@@ -379,13 +379,14 @@ header {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 50px;
   align-self: stretch;
   position: relative;
   width: 100%;
 }
 
-@media (min-width: 640px) {
+/* @media (min-width: 640px) {
   .mega-menu>ul {
     max-width: 640px;
   }
@@ -413,7 +414,7 @@ header {
   .mega-menu>ul {
     max-width: 1560px;
   }
-}
+} */
 
 /* Top-level li inside mega menu ul */
 .mega-menu>ul>li {
@@ -523,6 +524,163 @@ header {
   gap: 0.5rem;
 }
 
+.mega-menu > ul {
+  scrollbar-width: thin;            
+  scrollbar-color: #c67d1b #f1f1f1;  
+}
+
+.mega-menu > ul::-webkit-scrollbar {
+  height: 6px;
+}
+
+.mega-menu > ul::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.mega-menu > ul::-webkit-scrollbar-thumb {
+  background-color: #c67d1b;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+/* Custom Scrollbar for dropdown inside mega menu */
+.mega-menu > ul > li > ul {
+  scrollbar-width: thin;
+  scrollbar-color: #c67d1b #f1f1f1;
+}
+
+.mega-menu > ul > li > ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mega-menu > ul > li > ul::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.mega-menu > ul > li > ul::-webkit-scrollbar-thumb {
+  background-color: #c67d1b;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+
+.mega-brands-menu {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  background-color: #fff;
+  flex-wrap: wrap;
+}
+
+.brands-left {
+  /* flex: 1; */
+  min-width: 250px;
+}
+
+.brands-left h2 {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.brands-left h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #c67d1b;
+  margin-top: 8px;
+}
+
+.brands-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.brands-columns ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.brands-columns li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-family: "IBM Plex Sans", sans-serif;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.brands-columns li:hover {
+  color: #c67d1b;
+}
+
+.brands-right {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  gap: 20px;
+  min-width: 300px;
+}
+
+.brands-right img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mega-brands-menu {
+    flex-direction: column;
+  }
+
+  .brands-right {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .brands-columns {
+    gap: 20px;
+  }
+}
+
+/* Sticky Close Button for Mobile Mega Menu */
+.mega-menu-close {
+  display: none;
+  position: sticky;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  font-size: 30px;
+  color: #c67d1b;
+  /* border: 1px solid #c67d1b; */
+  /* border-radius: 50%; */
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+/* Show close button only when wrapper has the show-close-btn class */
+@media (max-width: 575px) {
+  .mega-menu-wrapper.show-close-btn .mega-menu-close {
+    display: block;
+    top: 135px;
+    position: absolute;
+    right: 20px;
+  }
+}
+
 /* ------------------- */
 
 /* Hero Slider */
@@ -622,6 +780,22 @@ header {
 
   .HeroSectionSlider {
     padding: 5rem 0 5rem;
+  }
+
+  .brands-right {
+    flex-wrap: wrap;
+  }
+
+  .brands-columns {
+    gap: 60px;
+  }
+
+  .brands-left {
+    width: 100%;
+  }
+
+  .brands-right {
+    width: 100%;
   }
 
   /* .mega-menu{
