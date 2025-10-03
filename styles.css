@@ -640,6 +640,9 @@ ul {
   .HeroSectionSlider {
     padding: 0.5rem 0 5rem;
   }
+  .navwrap{
+    padding-top: 1rem;
+  }
 
 
   .LogoImage {
