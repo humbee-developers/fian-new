@@ -23,7 +23,7 @@ const swiper = new Swiper(".swiper-slider", {
   loop: true,
   mousewheel: false,
   keyboard: {
-    enabled: true
+    enabled: false
   },
   speed: 800,
 

@@ -310,7 +310,7 @@ ul {
   overflow-y: auto;
   white-space: nowrap;
   padding-bottom: 14px;
-  padding-top: 1rem;
+  /* padding-top: 1rem; */
 }
 
 .nav {
@@ -555,7 +555,7 @@ ul {
 /* Hero Slider */
 .HeroSectionSlider {
   margin: 0 auto;
-  padding: 2rem 0 5rem;
+  padding: 1rem 0 5rem;
 }
 
 .Swiper_container {
