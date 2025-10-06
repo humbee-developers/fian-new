@@ -1,211 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FIAN</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FIAN</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-</head>
+  <body>
+    <!-- SVG icon sprite (menu/close) -->
+    <svg aria-hidden="true" style="display: none">
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="2" rx="1"></rect>
+        <rect x="3" y="11" width="18" height="2" rx="1"></rect>
+        <rect x="3" y="17" width="18" height="2" rx="1"></rect>
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path
+          d="M6 6 L18 18 M6 18 L18 6"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          fill="none"
+        />
+      </symbol>
+    </svg>
 
-<body>
-  <!-- Top Banner -->
-  <div class="top-banner">
-    <div class="banner-text" id="bannerText">Use FIANFIRST for a 10%
-      discount</div>
-  </div>
-  <!-- Header Navigation -->
-  <header class="site-header" id="HeaderLaptop">
-    <div class="logo">
-      <a href="/">
-        <img src="assets/Logo.png" alt="Logo">
-      </a>
-    </div>
-    <div class="search-bar">
-      <img src="assets/searchIcon.svg" alt="Search Icon" class="search-icon" />
-      <input type="text" placeholder="Search for the Charm, Occasion, Collection and more">
-      <img src="assets/mic.svg" alt="Mic Icon" class="mic-icon" />
-    </div>
-    <div class="header-icons">
-      <img src="assets/heart.svg" alt="Wishlist" class="icon">
-      <img src="assets/cartIcon.svg" alt="Cart" class="icon">
-    </div>
-  </header>
-  <!-- Header Mobile View -->
-  <header class="site-header" id="HeaderMobile">
-    <div class="header-top-row">
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+    <!-- Top Banner -->
+    <div class="top-banner">
+      <div class="banner-text" id="bannerText">
+        Use FIANFIRST for a 10% discount
       </div>
+    </div>
+    <!-- Header Navigation -->
+    <header class="site-header" id="HeaderLaptop">
       <div class="logo">
         <a href="/">
-          <img src="assets/Logo.png" alt="Logo">
+          <img src="assets/Logo.png" alt="Logo" />
         </a>
       </div>
-      <div class="header-icons">
-        <img src="assets/heart.svg" alt="Wishlist" class="icon">
-        <img src="assets/cartIcon.svg" alt="Cart" class="icon">
-      </div>
-    </div>
-
-    <div class="search-container">
       <div class="search-bar">
-        <img src="assets/searchIcon.svg" alt="Search Icon" class="search-icon" />
-        <input type="text" placeholder="Search for the Charm, Occasion, Collection and more">
+        <img
+          src="assets/searchIcon.svg"
+          alt="Search Icon"
+          class="search-icon"
+        />
+        <input
+          type="text"
+          placeholder="Search for the Charm, Occasion, Collection and more"
+        />
         <img src="assets/mic.svg" alt="Mic Icon" class="mic-icon" />
       </div>
-    </div>
-  </header>
-
-  <!-- Mobile Sidebar Navigation -->
-  <aside class="mobile-sidebar" id="mobileSidebar">
-    <div class="close-btn" id="closeSidebar">&times;</div>
-    <ul>
-      <li><img src="assets/all-jewellery.svg" alt="Rings">All Jewellery</li>
-      <li><img src="assets/ring.svg" alt="Rings">Rings</li>
-      <li><img src="assets/pendants.svg" alt="Pendants">Pendants</li>
-      <li><img src="assets/earrings.svg" alt="Earrings">Earrings</li>
-      <li><img src="assets/necklace.svg" alt="Necklace">Necklace</li>
-      <li><img src="assets/molecular.svg" alt="Molecular">Molecular
-        Edit</li>
-      <li><img src="assets/build-jewellery.svg" alt="Build">Build Your
-        Own Charm
-        Jewellery</li>
-      <li><img src="assets/collections.svg" alt="Collection">Collection</li>
-      <li><img src="assets/more.svg" alt="More">More</li>
-    </ul>
-  </aside>
-  <div class="overlay" id="overlay"></div>
-
-  <!-- Navigation Menu -->
-  <header>
-    <!-- <a href="https://play.tailwindcss.com/ucGvMUK39f" target="_blank">
-      <img src="https://static.www.fendi.com/docroot/fendi/9.23.7/images/logo-lite.png" alt="Fendi Logo" width="99" height="30" />
-    </a> -->
-    <div class="navwrap">
-      <ul id="nav" class="nav">
-        <li class="touch-only"><a href="#nav">Close Subs</a></li>
-        <li>
-          <a href="https://worldoffian.com/collections/build-your-own-charm-jewellery">
-            <img src="assets/charm-jewellry-icon.png" class="LogoImage">
-            <p>Charm Jewellery</p>
+      <div class="header-icons">
+        <img src="assets/heart.svg" alt="Wishlist" class="icon" />
+        <img src="assets/cartIcon.svg" alt="Cart" class="icon" />
+      </div>
+    </header>
+    <!-- Header Mobile View -->
+    <header class="site-header" id="HeaderMobile">
+      <div class="header-top-row">
+        <button
+          class="icon-button hamburger"
+          id="hamburger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          <svg class="menu-icon" width="24" height="24" aria-hidden="true">
+            <use href="#icon-menu"></use>
+          </svg>
+          <span class="sr-only">Toggle menu</span>
+        </button>
+        <div class="logo">
+          <a href="/">
+            <img src="assets/Logo.png" alt="Logo" />
           </a>
-          <ul class="dropdown">
-            <li>
-              <a href="" class="no-link">Build Your own Charm Jewellery</a>
-              <ul>
-                <li><a href="https://worldoffian.com/products/charms-necklace">Charm Necklace</a></li>
-                <li><a href="https://worldoffian.com/products/charms-bracelet">Charm Bracelet</a></li>
-                <li><a href="https://worldoffian.com/products/build-your-own-paper-clip-charm-necklace">Paperclip Charm
-                    Necklace</a></li>
-                <li><a href="https://worldoffian.com/products/build-your-own-paperclip-charm-bracelet">Paperclip Charm
-                    Bracelet</a></li>
-                <li><a href="https://worldoffian.com/products/trinity-bracelet">Trinity Bracelet</a></li>
-                <li><a href="https://worldoffian.com/products/trinity-necklace">Trinity Necklace</a></li>
-              </ul>
-            </li>
-            <li><a href="" class="no-link">Charm Pendants</a>
-              <ul>
-                <li><a href="https://worldoffian.com/products/alphabets-charm-necklace?variant=48343184179485">Letter
-                    Pendant</a></li>
-                <li><a href="https://worldoffian.com/products/symbol-pendants?variant=48790294888733">Symbol Pendant</a>
-                </li>
-                <li><a href="https://worldoffian.com/products/horoscope-pendants?variant=48777660399901">Horoscope
-                    Pendant</a></li>
-              </ul>
-            </li>
-            <li><a href="" class="no-link">Pre Made Charm Jewellery</a>
-              <ul>
-                <li><a href="https://worldoffian.com/products/charms-necklace">Charm Necklace</a></li>
-                <li><a href="https://worldoffian.com/products/charms-bracelet">Charm Bracelet</a></li>
-              </ul>
-            </li>
-            <li><a href="" class="no-link">Individual Charms</a>
-              <ul>
-                <li><a href="https://worldoffian.com/products/aeria?variant=49932680462621">Aeria Hathphool</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="https://worldoffian.com/collections/molecular-edit"><img src="assets/Molecular-Edit-icon.png"
-              class="LogoImage">
-            <p>Molecular Edit</p>
-          </a>
-        </li>
-        <li><a href="https://worldoffian.com/collections/trace-collection"><img src="assets/Hathphool-icon.png"
-              class="LogoImage">
-            <p>Hathphool</p>
-          </a>
-
-        </li>
-        <li><a href="https://worldoffian.com/collections/all-1"><img src="assets/ring-icon.png" class="LogoImage">
-            <p>Rings</p>
-          </a>
-          <ul class="dropdown">
-            <li><a href="https://worldoffian.com/collections/all-1">All Rings</a></li>
-            <li><a href="https://worldoffian.com/collections/adjustable-rings">Adjustable Rings</a>
-            </li>
-            <li><a href="https://worldoffian.com/collections/rings">Made to Order Rings</a></li>
-          </ul>
-        </li>
-        <li><a href="https://worldoffian.com/collections/pendants"><img src="assets/Pendants-icon.png"
-              class="LogoImage">
-            <p>Pendants</p>
-          </a>
-        </li>
-        <li><a href="https://worldoffian.com/collections/earrings"><img src="assets/earring-icon.png"
-              class="LogoImage">
-            <p>Earrings</p>
-          </a>
-        </li>
-        <li><a href="https://worldoffian.com/collections/birthstone-pendants"><img src="assets/gemstone-icon.png"
-              class="LogoImage">
-            <p>Gemstone</p>
-          </a>
-        </li>
-        <li><a href="https://worldoffian.com/collections/chains"><img src="assets/chain-icon.png" class="LogoImage">
-            <p>Chains</p>
-          </a>
-        </li>
-        <li class="more-dropdown"><a href="#"><img src="assets/charm-jewellry-icon.png" class="LogoImage">
-            <p>More</p>
-          </a>
-          <ul class="dropdown">
-            <li><a href="https://worldoffian.com/pages/about-us">About Us</a></li>
-            <li><a href="https://worldoffian.com/pages/benefits-of-sliver">Benefits of Silver</a></li>
-            <li><a href="https://worldoffian.com/pages/jewellery-care">Jewellery Care</a></li>
-            <li><a href="https://worldoffian.com/pages/faqs">FAQ's</a></li>
-            <li><a href="https://track-fian.shiprocket.co/">Track Order</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </header>
-
-  <!-- Hero Slider -->
-  <section class="HeroSectionSlider slider-section">
-    <div class="Swiper_container slider-column">
-      <div class="swiper swiper-slider">
-        <div class="swiper-wrapper">
-          <img class="swiper-slide" src="assets/1st Banner - Desktop.png" alt="Swiper">
-          <img class="swiper-slide" src="assets/2nd Banner - Desktop.png" alt="Swiper">
-          <img class="swiper-slide" src="assets/3rd Banner - Desktop.png" alt="Swiper">
-          <img class="swiper-slide" src="assets/4th Banner - Desktop.png" alt="Swiper">
+        </div>
+        <div class="header-icons">
+          <img src="assets/heart.svg" alt="Wishlist" class="icon" />
+          <img src="assets/cartIcon.svg" alt="Cart" class="icon" />
         </div>
       </div>
-    </div>
-  </section>
-  <script src="script.js"></script>
-</body>
 
+      <div class="search-container">
+        <div class="search-bar">
+          <img
+            src="assets/searchIcon.svg"
+            alt="Search Icon"
+            class="search-icon"
+          />
+          <input
+            type="text"
+            placeholder="Search for the Charm, Occasion, Collection and more"
+          />
+          <img src="assets/mic.svg" alt="Mic Icon" class="mic-icon" />
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Sidebar Navigation -->
+    <aside class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+      <button
+        class="icon-button close-btn"
+        id="closeSidebar"
+        aria-label="Close navigation"
+      >
+        <svg class="menu-icon" width="24" height="24" aria-hidden="true">
+          <use href="#icon-close"></use>
+        </svg>
+      </button>
+      <ul>
+        <li>
+          <img
+            src="assets/all-jewellery.svg"
+            alt="Rings"
+            class="MenuImage"
+          />All Jewellery
+        </li>
+        <li>
+          <img src="assets/ring.svg" alt="Rings" class="MenuImage" />Rings
+        </li>
+        <li>
+          <img
+            src="assets/pendants.svg"
+            alt="Pendants"
+            class="MenuImage"
+          />Pendants
+        </li>
+        <li>
+          <img
+            src="assets/earrings.svg"
+            alt="Earrings"
+            class="MenuImage"
+          />Earrings
+        </li>
+        <li>
+          <img
+            src="assets/necklace.svg"
+            alt="Necklace"
+            class="MenuImage"
+          />Necklace
+        </li>
+        <li>
+          <img
+            src="assets/molecular.svg"
+            alt="Molecular"
+            class="MenuImage"
+          />Molecular Edit
+        </li>
+        <li>
+          <img
+            src="assets/build-jewellery.svg"
+            alt="Build"
+            class="MenuImage"
+          />Build Your Own Charm Jewellery
+        </li>
+        <li>
+          <img
+            src="assets/collections.svg"
+            alt="Collection"
+            class="MenuImage"
+          />Collection
+        </li>
+        <li><img src="assets/more.svg" alt="More" class="MenuImage" />More</li>
+      </ul>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Navigation Menu -->
+    <header>
+      <!-- <a href="https://play.tailwindcss.com/ucGvMUK39f" target="_blank">
+      <img src="https://static.www.fendi.com/docroot/fendi/9.23.7/images/logo-lite.png" alt="Fendi Logo" width="99" height="30" />
+    </a> -->
+      <div class="navwrap">
+        <ul id="nav" class="nav">
+          <li class="touch-only"><a href="#nav">Close Subs</a></li>
+          <li>
+            <a
+              href="https://worldoffian.com/collections/build-your-own-charm-jewellery"
+            >
+              <img src="assets/charm-jewellry-icon.png" class="MenuImage" />
+              <p class="menu-item-text">Charm Jewellery</p>
+            </a>
+            <ul class="dropdown">
+              <li>
+                <a href="" class="no-link" style="padding-right: 30px"
+                  >Build Your own Charm Jewellery</a
+                >
+                <ul>
+                  <li>
+                    <a href="https://worldoffian.com/products/charms-necklace"
+                      >Charm Necklace</a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://worldoffian.com/products/charms-bracelet"
+                      >Charm Bracelet</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://worldoffian.com/products/build-your-own-paper-clip-charm-necklace"
+                      >Paperclip Charm Necklace</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://worldoffian.com/products/build-your-own-paperclip-charm-bracelet"
+                      >Paperclip Charm Bracelet</a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://worldoffian.com/products/trinity-bracelet"
+                      >Trinity Bracelet</a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://worldoffian.com/products/trinity-necklace"
+                      >Trinity Necklace</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="" class="no-link">Charm Pendants</a>
+                <ul>
+                  <li>
+                    <a
+                      href="https://worldoffian.com/products/alphabets-charm-necklace?variant=48343184179485"
+                      >Letter Pendant</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://worldoffian.com/products/symbol-pendants?variant=48790294888733"
+                      >Symbol Pendant</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://worldoffian.com/products/horoscope-pendants?variant=48777660399901"
+                      >Horoscope Pendant</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="" class="no-link">Pre Made Charm Jewellery</a>
+                <ul>
+                  <li>
+                    <a href="https://worldoffian.com/products/charms-necklace"
+                      >Charm Necklace</a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://worldoffian.com/products/charms-bracelet"
+                      >Charm Bracelet</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="" class="no-link">Individual Charms</a>
+                <ul>
+                  <li>
+                    <a
+                      href="https://worldoffian.com/products/aeria?variant=49932680462621"
+                      >Aeria Hathphool</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="https://worldoffian.com/collections/molecular-edit"
+              ><img src="assets/Molecular-Edit-icon.png" class="MenuImage" />
+              <p class="menu-item-text">Molecular Edit</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://worldoffian.com/collections/trace-collection"
+              ><img src="assets/Hathphool-icon.png" class="MenuImage" />
+              <p class="menu-item-text">Hathphool</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://worldoffian.com/collections/all-1"
+              ><img src="assets/ring-icon.png" class="MenuImage" />
+              <p class="menu-item-text">Rings</p>
+            </a>
+            <ul class="dropdown">
+              <li>
+                <a href="https://worldoffian.com/collections/all-1"
+                  >All Rings</a
+                >
+              </li>
+              <li>
+                <a href="https://worldoffian.com/collections/adjustable-rings"
+                  >Adjustable Rings</a
+                >
+              </li>
+              <li>
+                <a href="https://worldoffian.com/collections/rings"
+                  >Made to Order Rings</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="https://worldoffian.com/collections/pendants"
+              ><img src="assets/Pendants-icon.png" class="MenuImage" />
+              <p class="menu-item-text">Pendants</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://worldoffian.com/collections/earrings"
+              ><img src="assets/earring-icon.png" class="MenuImage" />
+              <p class="menu-item-text">Earrings</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://worldoffian.com/collections/birthstone-pendants"
+              ><img src="assets/gemstone-icon.png" class="MenuImage" />
+              <p class="menu-item-text">Gemstone</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://worldoffian.com/collections/chains"
+              ><img src="assets/chain-icon.png" class="MenuImage" />
+              <p class="menu-item-text">Chains</p>
+            </a>
+          </li>
+          <li class="more-dropdown">
+            <a href="#"
+              ><img src="assets/charm-jewellry-icon.png" class="MenuImage" />
+              <p class="menu-item-text">More</p>
+            </a>
+            <ul class="dropdown">
+              <li>
+                <a href="https://worldoffian.com/pages/about-us">About Us</a>
+              </li>
+              <li>
+                <a href="https://worldoffian.com/pages/benefits-of-sliver"
+                  >Benefits of Silver</a
+                >
+              </li>
+              <li>
+                <a href="https://worldoffian.com/pages/jewellery-care"
+                  >Jewellery Care</a
+                >
+              </li>
+              <li><a href="https://worldoffian.com/pages/faqs">FAQ's</a></li>
+              <li>
+                <a href="https://track-fian.shiprocket.co/">Track Order</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="HeroSectionSlider slider-section">
+      <div class="Swiper_container slider-column">
+        <div class="swiper swiper-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <picture>
+                <source media="(max-width:575px)" srcset="assets/banner1-mobile.webp" type="image/webp" />
+                <img src="assets/1st Banner - Desktop.png" alt="Hero Banner 1" />
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source media="(max-width:575px)" srcset="assets/banner2-mobile.webp" type="image/webp" />
+                <img src="assets/2nd Banner - Desktop.png" alt="Hero Banner 2" />
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source media="(max-width:575px)" srcset="assets/banner3-mobile.webp" type="image/webp" />
+                <img src="assets/3rd Banner - Desktop.png" alt="Hero Banner 3" />
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source media="(max-width:575px)" srcset="assets/banner4-mobile.webp" type="image/webp" />
+                <img src="assets/4th Banner - Desktop.png" alt="Hero Banner 4" />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
 </html>
