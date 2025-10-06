@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  --brand: #c67d1b;
+  --muted: #bcbcbc;
+  --text: #000000;
+  --bg: #ffffff;
+}
+
 body {
   font-family: "IBM Plex Sans", sans-serif;
   background: #fff;
@@ -162,12 +169,38 @@ ul {
   } */
 
 /* mobile-sidebar */
+
+.MenuImage {
+  width: 36px;
+  height: 36px;
+  box-shadow: inset 2px -5px 30px rgba(0, 0, 0, .18), 0 2px 8px rgba(0, 0, 0, .12);
+  border: solid #c37000 1.5px;
+  border-radius: 18px;
+  padding: 1px;
+}
+
+/* Menu Image for Mobile */
+
+@media (max-width: 768px) {
+  .MenuImage {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+  }
+
+  .menu-item-text {
+    word-wrap: break-word;
+    white-space: normal;
+    width: 80px;
+  }
+}
+
+
+
 .hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -177,6 +210,25 @@ ul {
   border-radius: 2px;
   width: 100%;
   transition: 0.3s;
+}
+
+/* Icon button */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.menu-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: var(--text);
 }
 
 /* Sidebar */
@@ -316,6 +368,7 @@ ul {
 .nav {
   /* display: table;  */
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
   text-align: center;
@@ -330,6 +383,8 @@ ul {
 
 .nav li>a {
   position: relative;
+  gap: 12px;
+
 }
 
 .nav li:hover,
@@ -571,6 +626,15 @@ ul {
   object-fit: cover;
 }
 
+/* Ensure nested picture/img fills slide */
+.swiper-slide picture, .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
 /* .swiper-slide-active {
   transform: scale(1.2); 
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -640,7 +704,8 @@ ul {
   .HeroSectionSlider {
     padding: 0.5rem 0 5rem;
   }
-  .navwrap{
+
+  .navwrap {
     padding-top: 1rem;
   }
 
@@ -689,7 +754,7 @@ ul {
 
   .header-icons {
     display: flex;
-    gap: 10px;
+    gap: 12px;
   }
 
   .header-icons .icon {
@@ -731,6 +796,11 @@ ul {
     border-radius: 30px;
     width: 100% !important;
     height: 55vh !important;
+    object-fit: cover;
+  }
+  .swiper-slide picture, .swiper-slide img {
+    height: 100%;
+    width: 100%;
     object-fit: cover;
   }
 }

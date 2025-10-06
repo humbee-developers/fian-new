@@ -75,9 +75,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("overlay");
   const closeBtn = document.getElementById("closeSidebar");
 
+  const setMenuIcon = (isOpen) => {
+    try {
+      const useEl = hamburger?.querySelector('svg use');
+      if (useEl) {
+        useEl.setAttribute('href', isOpen ? '#icon-close' : '#icon-menu');
+      }
+    } catch (e) {
+      // ignore
+    }
+  };
+
   const toggleSidebar = () => {
-    sidebar.classList.toggle("active");
-    overlay.classList.toggle("active");
+    if (!sidebar || !overlay || !hamburger) return;
+    const isActive = sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+    sidebar.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+    hamburger.setAttribute('aria-expanded', String(isActive));
+    setMenuIcon(isActive);
+    document.body.classList.toggle('no-scroll', isActive);
   };
 
   hamburger?.addEventListener("click", toggleSidebar);
