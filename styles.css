@@ -5,7 +5,7 @@
 }
 
 :root {
-  --brand: #c67d1b;
+  --brand: #D4C9BB;
   --muted: #bcbcbc;
   --text: #000000;
   --bg: #ffffff;
@@ -47,8 +47,8 @@ body.no-scroll {
 /* Top Banner */
 .top-banner {
   font-family: "Playfair Display", serif;
-  background-color: #c67d1b;
-  color: #ffffff;
+  background-color: #D4C9BB;
+  color: #000000;
   text-align: center;
   font-weight: 400;
   font-size: 16px;
